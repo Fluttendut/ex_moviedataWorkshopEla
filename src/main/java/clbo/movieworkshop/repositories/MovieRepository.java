@@ -23,13 +23,14 @@ public class MovieRepository {
         Scanner input = new Scanner(new File("/Users/clbo/Tresors/KEA/programmering/Exercises_fall_2022/Ex_movieWorkshop/resources/movies.csv"));
         input.useDelimiter(";|\n");
         while (input.hasNext()){
+            int id = input.nextInt();
             String year = input.next();
             String length = input.next();
             String title = input.next();
             String subject = input.next();
             String popularity = input.next();
             String awards = input.next();
-            movies.add(new Movie(year, length, title, subject, popularity, awards));
+            movies.add(new Movie(id, year, length, title, subject, popularity, awards));
         }
     }
 

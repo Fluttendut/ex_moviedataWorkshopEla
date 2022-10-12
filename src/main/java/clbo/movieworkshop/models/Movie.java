@@ -3,6 +3,7 @@ package clbo.movieworkshop.models;
 public class Movie implements Comparable<Movie> {
 
     // Year;Length;Title;Subject;Popularity;Awards
+    private int id;
     private String year;
     private String length;
     private String title;
@@ -10,7 +11,8 @@ public class Movie implements Comparable<Movie> {
     private String popularity;
     private String awards;
 
-    public Movie(String year, String length, String title, String subject, String popularity, String awards) {
+    public Movie(int id, String year, String length, String title, String subject, String popularity, String awards) {
+        this.id = id;
         this.year = year;
         this.length = length;
         this.title = title;
@@ -20,6 +22,14 @@ public class Movie implements Comparable<Movie> {
     }
 
     public Movie() {
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getYear() {
@@ -74,5 +84,18 @@ public class Movie implements Comparable<Movie> {
     public int compareTo(Movie o) {
         // return: -1 if this is smaller than o, 0 if they are equal, 1 if this is larger than o
         return Integer.parseInt(this.popularity) - Integer.parseInt(o.popularity);
+    }
+
+    @Override
+    public String toString() {
+        return "Movie{" +
+                "id=" + id +
+                ", year='" + year + '\'' +
+                ", length='" + length + '\'' +
+                ", title='" + title + '\'' +
+                ", subject='" + subject + '\'' +
+                ", popularity='" + popularity + '\'' +
+                ", awards='" + awards + '\'' +
+                '}';
     }
 }

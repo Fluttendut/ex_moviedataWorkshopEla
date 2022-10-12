@@ -23,12 +23,13 @@ public class MovieDBRepository {
 
     public Movie read(int id){
         try {
-            PreparedStatement psts = conn.prepareStatement("SELECT * FROM Student WHERE id = ?");
+            PreparedStatement psts = conn.prepareStatement("SELECT * FROM movies WHERE id = ?");
             psts.setInt(1, id);
             ResultSet resultSet = psts.executeQuery();
 
             if(resultSet.next()){
                 return new Movie (
+                        resultSet.getInt("id"),
                         resultSet.getString("year"),
                         resultSet.getString("length"),
                         resultSet.getString("title"),
